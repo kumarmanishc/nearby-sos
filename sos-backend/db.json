@@ -1,5 +1,175 @@
 {
-    "doctors": [],
-    "ambulances": [],
+    "doctors": [
+        {
+            "id": 1,
+            "title": "Dr. Sarah Johnson",
+            "description": "Emergency Medicine Specialist with 15 years of experience. Available 24/7 for critical care.",
+            "location": "Central Hospital, Downtown",
+            "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&face"
+        },
+        {
+            "id": 2,
+            "title": "Dr. Michael Chen",
+            "description": "Trauma Surgeon specializing in emergency procedures and critical care.",
+            "location": "Metro General Hospital",
+            "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&face"
+        },
+        {
+            "id": 3,
+            "title": "Dr. Emily Rodriguez",
+            "description": "Pediatric Emergency Specialist focused on children's emergency care.",
+            "location": "Children's Medical Center",
+            "image": "https://images.unsplash.com/photo-1594824804732-ca8db7d52b35?w=400&h=400&fit=crop&face"
+        },
+        {
+            "id": 4,
+            "title": "Dr. James Wilson",
+            "description": "Cardiologist specializing in heart emergencies and cardiac arrest response.",
+            "location": "Heart Institute, North Side",
+            "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop&face"
+        },
+        {
+            "id": 5,
+            "title": "Dr. Lisa Thompson",
+            "description": "Neurologist specializing in stroke and brain injury emergency care.",
+            "location": "Neuro Center, East Wing",
+            "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&face"
+        },
+        {
+            "id": 6,
+            "title": "Dr. Robert Kim",
+            "description": "Orthopedic Surgeon for emergency bone and joint injuries.",
+            "location": "Orthopedic Emergency Unit",
+            "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&face"
+        },
+        {
+            "id": 7,
+            "title": "Dr. Amanda Davis",
+            "description": "Emergency Psychiatrist for mental health crisis intervention.",
+            "location": "Mental Health Emergency Center",
+            "image": "https://images.unsplash.com/photo-1594824804732-ca8db7d52b35?w=400&h=400&fit=crop&face"
+        },
+        {
+            "id": 8,
+            "title": "Dr. David Brown",
+            "description": "Anesthesiologist available for emergency surgeries and pain management.",
+            "location": "Surgical Emergency Unit",
+            "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop&face"
+        },
+        {
+            "id": 9,
+            "title": "Dr. Jennifer Lee",
+            "description": "Emergency Radiologist for urgent imaging and diagnostic services.",
+            "location": "Emergency Imaging Center",
+            "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop&face"
+        },
+        {
+            "id": 10,
+            "title": "Dr. Mark Taylor",
+            "description": "Emergency Medicine Director with expertise in disaster response and triage.",
+            "location": "Emergency Command Center",
+            "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop&face"
+        },
+        {
+            "id": 11,
+            "title": "Dr. Rachel Green",
+            "description": "Emergency Pharmacist for critical medication management and poison control.",
+            "location": "Emergency Pharmacy Unit",
+            "image": "https://images.unsplash.com/photo-1594824804732-ca8db7d52b35?w=400&h=400&fit=crop&face"
+        },
+        {
+            "id": 12,
+            "title": "Dr. Kevin White",
+            "description": "Emergency ENT Specialist for airway emergencies and respiratory issues.",
+            "location": "Respiratory Emergency Unit",
+            "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop&face"
+        }
+    ],
+    "ambulances": [
+        {
+            "id": 1,
+            "title": "Advanced Life Support Unit 01",
+            "description": "Fully equipped ALS ambulance with cardiac monitor, ventilator, and advanced medications.",
+            "location": "Station 1 - Downtown Fire Department",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        },
+        {
+            "id": 2,
+            "title": "Basic Life Support Unit 02",
+            "description": "BLS ambulance for non-critical patient transport and basic emergency care.",
+            "location": "Station 2 - North Side Medical Center",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        },
+        {
+            "id": 3,
+            "title": "Critical Care Transport 03",
+            "description": "Specialized ICU-level ambulance for critical patient transfers between hospitals.",
+            "location": "Station 3 - Metro General Hospital",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        },
+        {
+            "id": 4,
+            "title": "Pediatric Ambulance 04",
+            "description": "Specialized ambulance equipped for pediatric emergencies with child-sized equipment.",
+            "location": "Station 4 - Children's Hospital",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        },
+        {
+            "id": 5,
+            "title": "Cardiac Response Unit 05",
+            "description": "Specialized cardiac ambulance with 12-lead EKG, balloon pump, and cardiac medications.",
+            "location": "Station 5 - Heart Institute",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        },
+        {
+            "id": 6,
+            "title": "Trauma Response Unit 06",
+            "description": "Heavy rescue ambulance equipped for major trauma and multi-casualty incidents.",
+            "location": "Station 6 - Trauma Center",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        },
+        {
+            "id": 7,
+            "title": "Air Medical Unit 07",
+            "description": "Helicopter ambulance for rapid transport and access to remote locations.",
+            "location": "Station 7 - Regional Airport",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        },
+        {
+            "id": 8,
+            "title": "Mobile Stroke Unit 08",
+            "description": "Specialized ambulance with CT scanner for rapid stroke diagnosis and treatment.",
+            "location": "Station 8 - Neurological Institute",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        },
+        {
+            "id": 9,
+            "title": "Neonatal Transport 09",
+            "description": "Specialized unit for transporting critically ill newborns and premature infants.",
+            "location": "Station 9 - Maternity Hospital",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        },
+        {
+            "id": 10,
+            "title": "Hazmat Response Unit 10",
+            "description": "Specialized ambulance for chemical, biological, and radiation emergency response.",
+            "location": "Station 10 - Emergency Operations Center",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        },
+        {
+            "id": 11,
+            "title": "Bariatric Ambulance 11",
+            "description": "Heavy-duty ambulance equipped for transporting patients over 400 pounds safely.",
+            "location": "Station 11 - Specialized Transport",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        },
+        {
+            "id": 12,
+            "title": "Mental Health Crisis Unit 12",
+            "description": "Specialized ambulance with trained psychiatric technicians for mental health emergencies.",
+            "location": "Station 12 - Mental Health Center",
+            "image": "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=400&h=400&fit=crop"
+        }
+    ],
     "locations": []
 }
