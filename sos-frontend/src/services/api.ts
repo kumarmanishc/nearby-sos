@@ -1,9 +1,8 @@
+import { ApiURLs } from '@/config';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000';
-
 const api = axios.create({
-  baseURL: API_BASE_URL,
+  baseURL: ApiURLs.BASE,
 });
 
 export interface Ambulance {
@@ -35,20 +34,27 @@ export interface ApiError {
   status: number;
 }
 
-// Ambulance API
-export const ambulanceApi = {
-  // Get all ambulances with pagination
-  getAll: async (page = 1, limit = 10): Promise<PaginatedResponse<Ambulance>> => {
+
+/**
+ * @description Generic API service for a given resource
+ * 
+ * @param resourceURL /doctors or ${resourceURL} etc.
+ * @returns 
+ */
+
+const ApiService = <T>(resourceURL: string) => ({
+  // Get all resources with pagination
+  getAll: async (page = 1, limit = 10): Promise<PaginatedResponse<T>> => {
     try {
-      const response = await api.get(`/ambulances?_page=${page}&_limit=${limit}`);
-      
+      const response = await api.get(`${resourceURL}?_page=${page}&_limit=${limit}`);
+
       // Get total count from separate call if header not available
       let total = parseInt(response.headers['x-total-count'] || '0');
       if (total === 0) {
-        const allResponse = await api.get('/ambulances');
+        const allResponse = await api.get(resourceURL);
         total = allResponse.data.length;
       }
-      
+
       return {
         data: response.data,
         total,
@@ -57,132 +63,59 @@ export const ambulanceApi = {
         totalPages: Math.ceil(total / limit),
       };
     } catch (error) {
-      throw new Error('Failed to fetch ambulances');
+      throw new Error('Failed to fetch resources');
     }
   },
 
-  // Get ambulance by ID
-  getById: async (id: string): Promise<Ambulance> => {
+  // Get resource by ID
+  getById: async (id: string): Promise<T> => {
     try {
-      const response = await api.get(`/ambulances/${id}`);
+      const response = await api.get(`${resourceURL}/${id}`);
       return response.data;
     } catch (error) {
-      throw new Error('Failed to fetch ambulance');
+      throw new Error('Failed to fetch resource');
     }
   },
 
-  // Create new ambulance
-  create: async (ambulance: Omit<Ambulance, 'id'>): Promise<Ambulance> => {
+  // Create new resource
+  create: async (resource: Omit<T, 'id'>): Promise<T> => {
     try {
-      const response = await api.post('/ambulances', ambulance);
+      const response = await api.post(resourceURL, resource);
       return response.data;
     } catch (error) {
-      throw new Error('Failed to create ambulance');
+      throw new Error('Failed to create resource');
     }
   },
 
-  // Update ambulance
-  update: async (id: string, ambulance: Partial<Omit<Ambulance, 'id'>>): Promise<Ambulance> => {
+  // Update resource
+  update: async (id: string, resource: Partial<Omit<T, 'id'>>): Promise<T> => {
     try {
-      const response = await api.patch(`/ambulances/${id}`, ambulance);
+      const response = await api.patch(`${resourceURL}/${id}`, resource);
       return response.data;
     } catch (error) {
-      throw new Error('Failed to update ambulance');
+      throw new Error('Failed to update resource');
     }
   },
 
-  // Delete ambulance
+  // Delete resource
   delete: async (id: string): Promise<void> => {
     try {
-      await api.delete(`/ambulances/${id}`);
+      await api.delete(`${resourceURL}/${id}`);
     } catch (error) {
-      throw new Error('Failed to delete ambulance');
+      throw new Error('Failed to delete resource');
     }
   },
 
   // Get total count
   getCount: async (): Promise<number> => {
     try {
-      const response = await api.get('/ambulances');
+      const response = await api.get(resourceURL);
       return response.data.length;
     } catch (error) {
-      throw new Error('Failed to get ambulance count');
+      throw new Error('Failed to get resource count');
     }
   },
-};
+});
 
-// Doctor API
-export const doctorApi = {
-  // Get all doctors with pagination
-  getAll: async (page = 1, limit = 10): Promise<PaginatedResponse<Doctor>> => {
-    try {
-      const response = await api.get(`/doctors?_page=${page}&_limit=${limit}`);
-      
-      // Get total count from separate call if header not available
-      let total = parseInt(response.headers['x-total-count'] || '0');
-      if (total === 0) {
-        const allResponse = await api.get('/doctors');
-        total = allResponse.data.length;
-      }
-      
-      return {
-        data: response.data,
-        total,
-        page,
-        limit,
-        totalPages: Math.ceil(total / limit),
-      };
-    } catch (error) {
-      throw new Error('Failed to fetch doctors');
-    }
-  },
-
-  // Get doctor by ID
-  getById: async (id: string): Promise<Doctor> => {
-    try {
-      const response = await api.get(`/doctors/${id}`);
-      return response.data;
-    } catch (error) {
-      throw new Error('Failed to fetch doctor');
-    }
-  },
-
-  // Create new doctor
-  create: async (doctor: Omit<Doctor, 'id'>): Promise<Doctor> => {
-    try {
-      const response = await api.post('/doctors', doctor);
-      return response.data;
-    } catch (error) {
-      throw new Error('Failed to create doctor');
-    }
-  },
-
-  // Update doctor
-  update: async (id: string, doctor: Partial<Omit<Doctor, 'id'>>): Promise<Doctor> => {
-    try {
-      const response = await api.patch(`/doctors/${id}`, doctor);
-      return response.data;
-    } catch (error) {
-      throw new Error('Failed to update doctor');
-    }
-  },
-
-  // Delete doctor
-  delete: async (id: string): Promise<void> => {
-    try {
-      await api.delete(`/doctors/${id}`);
-    } catch (error) {
-      throw new Error('Failed to delete doctor');
-    }
-  },
-
-  // Get total count
-  getCount: async (): Promise<number> => {
-    try {
-      const response = await api.get('/doctors');
-      return response.data.length;
-    } catch (error) {
-      throw new Error('Failed to get doctor count');
-    }
-  },
-};
+export const ambulanceApi = ApiService<Ambulance>(ApiURLs.AMBULANCES);
+export const doctorApi = ApiService<Doctor>(ApiURLs.DOCTORS);
