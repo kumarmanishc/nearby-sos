@@ -1,9 +1,10 @@
 # SOS Frontend
 
 ### Setup Instructions
-1. Install dependencies:
+1. Run Front end Setup:
 
 ```
+cd sos-frontend
 pnpm install
 npm i -g pnpm # if pnpm is not installed
 
@@ -11,8 +12,9 @@ npm i -g pnpm # if pnpm is not installed
 2. Start the development server:
 
 ```
-pnpm run dev
-```
+cd sos-backend
+npm install
+npx json-server db.json --port 3000
 
 ### Adding Shadcn Components.
 
