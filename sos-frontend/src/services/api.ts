@@ -11,6 +11,8 @@ export interface Ambulance {
   description: string;
   location: string;
   image?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface Doctor {
@@ -19,6 +21,8 @@ export interface Doctor {
   description: string;
   location: string;
   image?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface PaginatedResponse<T> {
@@ -27,6 +31,12 @@ export interface PaginatedResponse<T> {
   page: number;
   limit: number;
   totalPages: number;
+}
+
+export interface ApiResponse<T> {
+  success: boolean;
+  data: T;
+  message?: string;
 }
 
 export interface ApiError {
@@ -112,10 +122,7 @@ const ApiService = <T>(resourceURL: string) => ({
       const response = await api.get(resourceURL);
       return response.data.length;
     } catch (error) {
-      throw new Error('Failed to get resource count');
+      throw new Error('Failed to get resource ');
     }
   },
 });
-
-export const ambulanceApi = ApiService<Ambulance>(ApiURLs.AMBULANCES);
-export const doctorApi = ApiService<Doctor>(ApiURLs.DOCTORS);
