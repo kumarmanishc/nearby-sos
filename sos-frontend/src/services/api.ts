@@ -41,7 +41,13 @@ export const ambulanceApi = {
   getAll: async (page = 1, limit = 10): Promise<PaginatedResponse<Ambulance>> => {
     try {
       const response = await api.get(`/ambulances?_page=${page}&_limit=${limit}`);
-      const total = parseInt(response.headers['x-total-count'] || '0');
+      
+      // Get total count from separate call if header not available
+      let total = parseInt(response.headers['x-total-count'] || '0');
+      if (total === 0) {
+        const allResponse = await api.get('/ambulances');
+        total = allResponse.data.length;
+      }
       
       return {
         data: response.data,
@@ -111,7 +117,13 @@ export const doctorApi = {
   getAll: async (page = 1, limit = 10): Promise<PaginatedResponse<Doctor>> => {
     try {
       const response = await api.get(`/doctors?_page=${page}&_limit=${limit}`);
-      const total = parseInt(response.headers['x-total-count'] || '0');
+      
+      // Get total count from separate call if header not available
+      let total = parseInt(response.headers['x-total-count'] || '0');
+      if (total === 0) {
+        const allResponse = await api.get('/doctors');
+        total = allResponse.data.length;
+      }
       
       return {
         data: response.data,
