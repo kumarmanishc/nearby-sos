@@ -14,8 +14,7 @@ npm i -g pnpm # if pnpm is not installed
 ```
 cd sos-backend
 npm install
-npx json-server db.json --port 3000
-
+npm run dev
 ### Adding Shadcn Components.
 
 ```
